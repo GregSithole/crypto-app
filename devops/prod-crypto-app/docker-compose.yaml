@@ -1,0 +1,30 @@
+version: "3.6"
+services:
+  travel:
+    build:
+      context: $PWD/../..
+      dockerfile: $PWD/travel/Dockerfile
+    restart: always
+    expose:
+      - "80"
+      - "443"
+    environment:
+      - VIRTUAL_HOST=travel.gregsithole.com
+      - VIRTUAL_PORT=80
+      - LETSENCRYPT_HOST=travel.gregsithole.com
+      - LETSENCRYPT_EMAIL=gregsithole@hotmail.co.za
+  nginx:
+    image: nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    expose:
+      - 80
+    depends_on:
+      - travel
+    links:
+      - travel
+
+networks:
+  default:
+    external:
+      name: nginx-proxy

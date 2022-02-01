@@ -1,0 +1,11 @@
+version: "3.6"
+
+services:
+  travel:
+    build:
+      context: $PWD/../..
+      dockerfile: $PWD/travel/Dockerfile
+    volumes:
+      - ../../src:/app/src
+    ports:
+      - "3000:3000"
