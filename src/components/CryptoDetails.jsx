@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 
-class CryptoDetails extends Component {
-    render() {
-        return (
-            <div>
-                CryptoDetails
-            </div>
-        );
-    }
+const CryptoDetails = () => {
+    return (
+        <div>
+            CryptoDetails
+        </div>
+    );
 }
 
 export default CryptoDetails;
