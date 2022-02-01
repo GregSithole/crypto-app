@@ -1,10 +1,10 @@
 version: "3.6"
 
 services:
-  travel:
+  crypto:
     build:
       context: $PWD/../..
-      dockerfile: $PWD/travel/Dockerfile
+      dockerfile: $PWD/crypto/Dockerfile
     volumes:
       - ../../src:/app/src
     ports:
